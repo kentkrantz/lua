@@ -1,5 +1,5 @@
-SDK_IPHONEOS_PATH = /Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk
-XCODE_TOOLCHAIN_PATH = /Applications/Xcode.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
+SDK_IPHONEOS_PATH = /Applications/Xcode11.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS.sdk
+XCODE_TOOLCHAIN_PATH = /Applications/Xcode11.app/Contents/Developer/Toolchains/XcodeDefault.xctoolchain/usr/bin
 
 CC := $(XCODE_TOOLCHAIN_PATH)/clang
 AR := $(XCODE_TOOLCHAIN_PATH)/ar

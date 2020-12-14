@@ -136,11 +136,21 @@ static time_t l_checktime (lua_State *L, int arg) {
 /* }================================================================== */
 
 
-
+// http://lua-users.org/lists/lua-l/2015-07/msg00495.html
+#include <spawn.h>
+extern char **environ;
 
 static int os_execute (lua_State *L) {
   const char *cmd = luaL_optstring(L, 1, NULL);
-  int stat = system(cmd);
+  //int stat = system(cmd);
+  pid_t pid;
+  char *argv[] = {
+    (char *)cmd,
+    NULL
+  };
+    
+  int stat = posix_spawn(&pid, argv[0], NULL, NULL, argv, environ);
+  waitpid(pid, NULL, 0);
   if (cmd != NULL)
     return luaL_execresult(L, stat);
   else {
@@ -148,7 +158,6 @@ static int os_execute (lua_State *L) {
     return 1;
   }
 }
-
 
 static int os_remove (lua_State *L) {
   const char *filename = luaL_checkstring(L, 1);

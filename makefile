@@ -16,7 +16,7 @@ TARGET = lib$(NAME).a
 
 COPY_LIB_TO = ../../lib
 
-CFLAGS += -Wno-string-plus-int -fembed-bitcode -DLUA_USE_MACOSX # We need -DLUA_USE_MACOSX to enable io.popen
+CFLAGS += -Wno-string-plus-int -fembed-bitcode -I/usr/local/Cellar/readline/8.1/include -DLUA_USE_MACOSX # We need -DLUA_USE_MACOSX to enable io.popen
 
 SRC = $(wildcard *.c)
 
